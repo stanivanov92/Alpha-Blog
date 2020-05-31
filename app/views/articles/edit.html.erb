@@ -1,5 +1,4 @@
 <h1>Edit article</h1>
-
 <% if @article.errors.any?%>
  <h2>The following errors prevented the article of being saved</h2>
   <ul>
@@ -26,3 +25,5 @@
 	</p>
 
 <% end %>
+
+<p><%=link_to 'Cancel upodate', articles_path%></p>
