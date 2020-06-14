@@ -1,0 +1,28 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.navbar {
+	background-color: black !important;
+}
+
+.nav-link {
+	color: white !important;
+}
+
+#logo {
+	color:  #e8e4c9;
+	font-size: 1.7em;
+	float: left;
+	text-transform: uppercase; 
+	letter-spacing: 2px;
+	font-weight: bold;
+}
+
+#logo:hover {
+	color: #ffff;
+	text-decoration: none;
+
+}
+
+.center {
+	text-align: center;
+}
