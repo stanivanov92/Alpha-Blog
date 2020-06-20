@@ -1,28 +1,71 @@
-@import 'bootstrap/dist/css/bootstrap';
+@import "bootstrap/dist/css/bootstrap";
 
 .navbar {
-	background-color: black !important;
+  background-color: black !important;
 }
 
 .nav-link {
-	color: white !important;
+  color: white !important;
 }
 
 #logo {
-	color:  #e8e4c9;
-	font-size: 1.7em;
-	float: left;
-	text-transform: uppercase; 
-	letter-spacing: 2px;
-	font-weight: bold;
+  color: #e8e4c9;
+  font-size: 1.7em;
+  float: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 
 #logo:hover {
-	color: #ffff;
-	text-decoration: none;
-
+  color: #ffff;
+  text-decoration: none;
 }
 
 .center {
-	text-align: center;
+  text-align: center;
+}
+
+#home-container {
+  position: relative;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-top: 2%;
+}
+
+#drop-down-menu {
+  background-color: lightgreen;
+  opacity: 0.92;
+}
+
+.for-marging {
+  padding: 2%;
+}
+
+#btn-sign {
+  position: relative;
+  top: 160px;
+}
+
+.jumbotron {
+  position: relative;
+  background-image: asset-url("wolfgang.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding-top: 1%;
+  font-weight: bold;
+  font-size: 20px;
+  opacity: 0.8;
+  width: 100%;
+  background-color: dimgray;
+  color: white;
+  text-align: center;
 }
