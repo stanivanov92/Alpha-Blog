@@ -1,4 +1,10 @@
 @import "bootstrap/dist/css/bootstrap";
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
 
 .navbar {
   background-color: black !important;
@@ -24,6 +30,12 @@
 
 .center {
   text-align: center;
+}
+
+#page-content {
+  position: relative;
+  border: 3px solid #83b9ac;
+  background-color: rgba(218, 209, 209, 0.822);
 }
 
 #home-container {
@@ -58,6 +70,7 @@
 
 .footer {
   position: fixed;
+  z-index: 1;
   left: 0;
   bottom: 0;
   padding-top: 1%;
