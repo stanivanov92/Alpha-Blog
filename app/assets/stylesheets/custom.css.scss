@@ -1,10 +1,4 @@
 @import "bootstrap/dist/css/bootstrap";
-html,
-body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-}
 
 .navbar {
   background-color: black !important;
@@ -32,10 +26,22 @@ body {
   text-align: center;
 }
 
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
 #page-content {
   position: relative;
-  border: 3px solid #83b9ac;
+  border: 3px solid #28997f;
   background-color: rgba(218, 209, 209, 0.822);
+}
+
+#edit_page {
+  background-color: rgb(126, 161, 216);
+  max-width: 70%;
 }
 
 #home-container {
