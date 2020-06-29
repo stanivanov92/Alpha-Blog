@@ -35,12 +35,18 @@ body {
 
 #page-content {
   position: relative;
-  border: 3px solid #28997f;
   background-color: rgba(218, 209, 209, 0.822);
+  min-height: fit-content;
 }
 
 #edit_page {
   background-color: rgb(126, 161, 216);
+  max-height: fit-content;
+  min-height: fit-content;
+  max-width: 70%;
+}
+
+#alert_main {
   max-width: 70%;
 }
 
@@ -54,6 +60,18 @@ body {
 #drop-down-menu {
   background-color: lightgreen;
   opacity: 0.92;
+}
+
+#page-bottom-filler {
+  position: relative;
+  background-color: rgba(218, 209, 209, 0.822);
+  min-height: 17%;
+}
+
+#page-bottom-filler-show {
+  position: relative;
+  background-color: rgba(218, 209, 209, 0.822);
+  min-height: 78%;
 }
 
 .for-marging {

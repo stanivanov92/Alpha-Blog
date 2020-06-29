@@ -1,29 +1,21 @@
-<div class="container" id="page-content">
-
 <h1 class="text-center m-3">Articles listing page</h1>
-
- <div class="container text-center center">
+<div class="container">
   <%@articles.each do |article|%>
-
-   <div class="row justify-content-md-center">   
-	 <div class="card border-success m-2 col-8 shadow p-3 mb-5 bg-white rounded">
+  <div class="row justify-content-md-center">   
+		<div class="card border-success m-2 col-8 shadow p-3 mb-5 bg-white rounded">
 		  <div class="card-header bg-transparent border-success font-italic">by Stan Ivanov</div>
-  			<div class="card-body text-success">
-
+  		<div class="card-body text-success">
   		  <h4 class="m-2"><%= link_to article.title, article_path(article.id), class: "text-success"%></h4>
-			
   		  <p class="card-text text-center"><%= truncate(article.description, length: 100)%></p>
-
   		  <a><%=link_to "View", article_path(article.id), class: "btn btn-outline-success m-2" %> <a>
- 		  <a><%=link_to "Edit", edit_article_path(article.id), class: "btn btn-outline-primary m-2" %> <a>
- 		  <a><%=link_to "Delete", article_path(article.id), method: :delete, class: "btn btn-outline-danger m-2" %> <a>
-  			<div class="card-footer bg-transparent border-success text-center mt-2 pb-0 mb-0">Created at: <%=time_ago_in_words(article.created_at)%> ago.
-		  Last updated: <%=time_ago_in_words(article.updated_at)%> ago.</div>
-     </div>
+ 		 	 	<a><%=link_to "Edit", edit_article_path(article.id), class: "btn btn-outline-primary m-2" %> <a>
+ 		  	<a><%=link_to "Delete", article_path(article.id), method: :delete, class: "btn btn-outline-danger m-2" %> <a>
+  			<div class="card-footer bg-transparent border-success text-center mt-2 pb-0 mb-0">
+					Created at: <%=time_ago_in_words(article.created_at)%> ago.
+					Last updated: <%=time_ago_in_words(article.updated_at)%> ago.</div>
+			</div>
    </div>
+	</div>
+		<%end%>
+</div>	
 
-  </div>
-
-<%end%>
-
-</div>

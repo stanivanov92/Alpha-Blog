@@ -1,5 +1,18 @@
-<h1>Showing an Article details</h1>
-<p><strong>Title: <%= @article.title%> </strong></p>
-<p><strong>Description: <%= @article.description%></strong></p>
-
-<p> <%=link_to 'All Articles', articles_path%> | <%= link_to 'Edit article', edit_article_path(@article.id)%> | <%= link_to 'Delete article', article_path(@article.id), method: :delete, data: { confirm: "Are you sure?"} %> </p>
+<h1 class="m-3"><%=@article.title%></h1>
+<div class="container text-center">
+  <div class="row justify-content-md-center m-2">   
+    <div class="card border-secondary col-10 m-2 shadow bg-white rounded">
+      <div class="card-header bg-solid border-secondary font-italic">by Stan Ivanov</div>
+      <div class="card-body">
+      <p class="card-text text-center"><%= simple_format(@article.description)%></p>
+      <a><%=link_to "Edit", edit_article_path(@article.id), class: "btn btn-outline-primary m-2" %> <a>
+      <a><%=link_to "Delete", article_path(@article.id), method: :delete, class: "btn btn-outline-danger m-2" %> <a>
+      <div class="card-footer bg-solid border-secondary text-center m-2">
+        Created:<%=time_ago_in_words(@article.created_at)%> ago.
+        Last updated: <%=time_ago_in_words(@article.updated_at)%> ago.
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="page-bottom-filler-show"></div>
