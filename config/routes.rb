@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :articles
   get 'contacts', to: 'pages#contacts'
   get 'signup', to: 'users#new'
-  resources :user, except: [:new]
+  resources :users, except: %i[new]
 end
