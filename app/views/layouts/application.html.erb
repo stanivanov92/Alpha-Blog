@@ -4,7 +4,6 @@
     <title>AlphaBlog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -12,12 +11,12 @@
   <body class="d-flex flex-column"  >
     <%= render 'layouts/app_nav_bar'%>
     <div class="text-center" id="page-content">
-    <%= render 'layouts/messages' %>
-        <%= yield %>
-     </div>   
-     <div class="footer">
-       <p class="text-center center">Copyright &copy; Your Website</p>
-     </div> 
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+    </div>   
+    <div class="footer">
+      <p class="text-center center">Copyright &copy; Your Website</p>
+    </div> 
 
   </body>
 </html>
