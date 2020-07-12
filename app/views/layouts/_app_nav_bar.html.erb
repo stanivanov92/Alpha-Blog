@@ -1,29 +1,50 @@
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-   <%= link_to "Stan's Blog", root_path, class: "nav-brand", id: "logo"%>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to "Stan's Blog", root_path, class: "nav-brand", id: "logo"%>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" 
+    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+    aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%=link_to "Articles", articles_path, class: "nav-link m-2"%>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle m-2" href="#" id="navbarDropdown" 
+          role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Articles
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="drop-down-menu">
+            <div class="for-marging">  
+              <%=link_to "All articles", articles_path, class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%=link_to "New article", new_article_path, class: "dropdown-item" %>
+            </div>
+          </div>
+        </li>
       </li>
-      <li class="nav-item">
-         <%=link_to "New article", new_article_path, class: "nav-link m-2" %>
+       <li class="nav-item">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle m-2" href="#" id="navbarDropdown" 
+          role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Users
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="drop-down-menu">
+            <div class="for-marging">  
+              <%=link_to "All users", users_path, class: "dropdown-item" %>
+            </div>
+          </div>
+        </li>
       </li>
-  
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle m-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle m-2" href="#" id="navbarDropdown" role="button" 
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           More
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="drop-down-menu">
-         <div class="for-marging">  
-           <%=link_to "About page", about_path, class: "dropdown-item" %>
-          <div class="dropdown-divider"></div>
-           <%=link_to "Contact me", contacts_path, class: "dropdown-item" %>
+          <div class="for-marging">  
+            <%=link_to "About page", about_path, class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
+            <%=link_to "Contact me", contacts_path, class: "dropdown-item" %>
           </div>
         </div>
       </li>
@@ -33,4 +54,4 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
-   </nav>
+</nav>
