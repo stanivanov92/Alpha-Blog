@@ -1,4 +1,4 @@
-@import "bootstrap/dist/css/bootstrap";
+@import 'bootstrap/dist/css/bootstrap';
 
 .navbar {
   background-color: black !important;
@@ -74,6 +74,12 @@ body {
   min-height: 108%;
 }
 
+#page-bottom-user-show {
+  position: relative;
+  background-color: rgba(218, 209, 209, 0.822);
+  min-height: 4%;
+}
+
 .for-marging {
   padding: 2%;
 }
@@ -85,7 +91,7 @@ body {
 
 .jumbotron {
   position: relative;
-  background-image: asset-url("wolfgang.jpg");
+  background-image: asset-url('wolfgang.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
