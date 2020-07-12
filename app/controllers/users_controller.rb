@@ -2,7 +2,7 @@
 
 # Users controller
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[edit update]
+  before_action :set_user, only: %i[edit update show]
   def new
     @user = User.new
   end
@@ -20,7 +20,6 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = 'update success'
       redirect_to articles_path
@@ -29,7 +28,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @articles = @user.articles
+  end
 
   private
 
