@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[edit update show]
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page], per_page: 5)
   end
 
   def new
@@ -27,14 +27,14 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:notice] = 'update success'
-      redirect_to articles_path
+      redirect_to @user
     else
       render 'new'
     end
   end
 
   def show
-    @articles = @user.articles
+    @articles = @user.articles.paginate(page: params[:page], per_page: 2)
   end
 
   private
