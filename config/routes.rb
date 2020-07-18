@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   get 'contacts', to: 'pages#contacts'
   get 'signup', to: 'users#new'
   resources :users, except: %i[new]
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'login', to: 'sessions#destroy'
 end
