@@ -8,8 +8,10 @@
   		  <h4 class="m-2"><%= link_to obj.title, article_path(obj.id), class: "text-success"%></h4>
   		  <p class="card-text text-center"><%= truncate(obj.description, length: 100)%></p>
   		  <a><%=link_to "View", article_path(obj.id), class: "btn btn-outline-success m-2" %> <a>
- 		 	 	<a><%=link_to "Edit", edit_article_path(obj.id), class: "btn btn-outline-primary m-2" %> <a>
- 		  	<a><%=link_to "Delete", article_path(obj.id), method: :delete, class: "btn btn-outline-danger m-2" %> <a>
+				<%if logged_in? && current_user === obj.user%>
+					<a><%=link_to "Edit", edit_article_path(obj.id), class: "btn btn-outline-primary m-2" %> <a>
+					<a><%=link_to "Delete", article_path(obj.id), method: :delete, class: "btn btn-outline-danger m-2" %> <a>
+				 <%end%>
   			<div class="card-footer bg-transparent border-success text-center mt-2 pb-0 mb-0">
 					Created at: <%=time_ago_in_words(obj.created_at)%> ago.
 					Last updated: <%=time_ago_in_words(obj.updated_at)%> ago.</div>

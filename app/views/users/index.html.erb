@@ -11,7 +11,9 @@
   		  <h4 class="m-2 card-title"><%= link_to gravatar_for(user, size: 150), user%></h4>
         <h4 class="m-2 card-text"><%= pluralize(user.articles.count, 'Article')%></h4>
           <%=link_to "View profile", user, class: "btn btn-outline-success m-2" %>
-          <%=link_to "Edit profile", edit_user_path(user), class: "btn btn-outline-primary m-2" %>
+					<%if logged_in? && current_user == user%>
+						<%=link_to "Edit profile", edit_user_path(user), class: "btn btn-outline-primary m-2" %>
+					<%end%>
   			<div class="card-footer bg-transparent border-success text-center mt-2 pb-0 mb-0">
 					Joined: <%=time_ago_in_words(user.created_at)%> ago.
 					Last updated: <%=time_ago_in_words(user.updated_at)%> ago.</div>
