@@ -1,5 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to "Stan's Blog", root_path, class: "nav-brand", id: "logo"%>
+  <%if logged_in? %>
+    <%= link_to "Stan's Blog", articles_path, class: "nav-brand", id: "logo"%>
+  <%else%>
+     <%= link_to "Stan's Blog", root_path, class: "nav-brand", id: "logo"%>
+   <%end%>   
   <button class="navbar-toggler" type="button" data-toggle="collapse" 
     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
     aria-expanded="false" aria-label="Toggle navigation">
@@ -16,8 +20,10 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="drop-down-menu">
             <div class="for-marging">  
               <%=link_to "All articles", articles_path, class: "dropdown-item" %>
-              <div class="dropdown-divider"></div>
-              <%=link_to "New article", new_article_path, class: "dropdown-item" %>
+              <%if logged_in?%>
+                <div class="dropdown-divider"></div>
+                <%=link_to "New article", new_article_path, class: "dropdown-item" %>
+              <%end%>
             </div>
           </div>
         </li>
@@ -52,7 +58,21 @@
         <li class="nav-item">
           <%=link_to "Log Out", login_path, method: :delete, class: "nav-link mt-2"%>
         </li>
-        <h3 class="text-white m-2 pl-4"> Welcome <%= current_user.name%></h1>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle m-2" href="#" id="navbarDropdown" role="button" 
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%=current_user.name%>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="drop-down-menu">
+            <div class="for-marging">  
+              <%=link_to "View profile", current_user, class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%=link_to "Edit profile", edit_user_path(current_user), class: "dropdown-item" %>
+               <div class="dropdown-divider"></div>
+              <%=link_to "Close account", user_path(current_user), method: :delete, class: "dropdown-item text-danger", data: {confirm: "Are you sure you want to delete this account?"} %>
+            </div>
+          </div>
+        </li>
       <% else %>
         <li class="nav-item">
           <%=link_to "Log In", login_path, class: "nav-link mt-2"%>
