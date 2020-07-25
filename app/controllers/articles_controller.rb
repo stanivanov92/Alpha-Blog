@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      flash[:notice] = 'Successfully updated article'
+      flash[:success] = 'Successfully updated article'
       redirect_to @article
     else
       render 'edit'
@@ -39,12 +39,13 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    flash[:notice] = if @article.destroy
-                       'Item was successfully deleted'
-                     else
-                       'The operation was Unseccessfull'
-                     end
-    redirect_to articles_path
+    if @article.destroy
+      flash[:success] = 'Item was successfully deleted'
+      redirect_to articles_path
+    else
+      flash[:danger] = 'The operation was Unseccessfull'
+      redirect_to @article
+    end
   end
 
   private
@@ -59,7 +60,7 @@ class ArticlesController < ApplicationController
 
   def require_same_user
     if current_user != @article.user && !current_user.admin?
-      flash[:alert] = 'You can only modify your own articles'
+      flash[:danger] = 'You can only modify your own articles'
       redirect_to @article
     end
   end

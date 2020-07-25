@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = 'You have successfully registered'
+      flash[:success] = 'You have successfully registered'
       session[:user_id] = @user.id
       redirect_to articles_path
     else
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:notice] = 'update success'
+      flash[:success] = 'update success'
       redirect_to @user
     else
       render 'new'
@@ -42,10 +42,10 @@ class UsersController < ApplicationController
 
   def destroy
     if @user.destroy
-      flash[:notice] = 'Your account has successfully been closed!'
+      flash[:success] = 'Your account has successfully been closed!'
       session[:user_id] = nil unless current_user.admin?
     else
-      flash[:notice] = 'The account could not be closed'
+      flash[:danger] = 'The account could not be closed'
     end
     redirect_to root_path
   end
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
 
   def require_same_user
     if current_user != @user && !current_user.admin?
-      flash[:alert] = 'You can only modify your own profile'
+      flash[:danger] = 'You can only modify your own profile'
       redirect_to @user
     end
   end
