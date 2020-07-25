@@ -1,8 +1,9 @@
 <h2><%=@user.name%>'s profile</h2>
 <%= gravatar_for @user, size: 250 %>
 <div class="containter m3">
-  <%if logged_in? && current_user === @user%>
+  <%if logged_in? && (current_user === @user || current_user.admin?)%>
     <%= link_to "Edit your profile", edit_user_path(@user), class: 'btn btn-outline-primary btn-lg m-3'%>
+    <%= link_to "Delete account", user_path(@user), method: :delete, class: "btn btn-outline-danger btn-lg m-3" %>
   <%end%>
 </div>
 <div class="flickr_pagination mb-5 pb-4">
