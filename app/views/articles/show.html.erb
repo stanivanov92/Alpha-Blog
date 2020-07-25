@@ -6,7 +6,7 @@
       <%= link_to gravatar_for(@article.user, size: 140), user_path(@article.user), class: "container m-6 pt-4 col-2"%>
       <div class="card-body">
       <p class="card-text text-center"><%= simple_format(@article.description)%></p>
-      <%if logged_in? && current_user === @article.user%>
+      <%if logged_in? && (current_user === @article.user || current_user.admin?)%>
         <a><%=link_to "Edit", edit_article_path(@article.id), class: "btn btn-outline-primary m-2" %> <a>
         <a><%=link_to "Delete", article_path(@article.id), method: :delete, class: "btn btn-outline-danger m-2" %> <a>
       <%end%>

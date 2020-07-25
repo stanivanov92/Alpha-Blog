@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   def destroy
     if @user.destroy
       flash[:notice] = 'Your account has successfully been closed!'
-      session[:user_id] = nil
+      session[:user_id] = nil unless current_user.admin?
     else
       flash[:notice] = 'The account could not be closed'
     end
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @user
+    if current_user != @user && !current_user.admin?
       flash[:alert] = 'You can only modify your own profile'
       redirect_to @user
     end
