@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
+gem 'rails', '~> 7.0.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -21,7 +21,7 @@ gem 'rubocop-rails', require: false
 # Use Redis adapter to run Action Cable in production
 gem 'ffaker'
 
-gem 'actionpack', '~> 6.0.3.2'
+gem 'actionpack', '~> 7.0.4.1'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
